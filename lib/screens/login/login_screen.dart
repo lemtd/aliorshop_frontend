@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Image.asset('veggie.png', width: 150,)
+                  child: Image.asset('assets/veggie.png', width: 150,)
                 ),
                 SizedBox(
                   height: 10,
