@@ -35,7 +35,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Image.asset('images/veggie.png', width: 150,)
+                  child: Image.asset('veggie.png', width: 150,)
                 ),
                 SizedBox(
                   height: 10,
