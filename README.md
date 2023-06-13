@@ -1,4 +1,4 @@
-# pockectcheff
+# Projeto da turma de Inovação em Saúde
 
 A new Flutter project.
 
