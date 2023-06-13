@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pockectcheff/screens/home/home_screen.dart';
 import 'package:pockectcheff/screens/login/login_screen.dart';
 
-class ResetPasswordScreen extends StatefulWidget {
-  const ResetPasswordScreen({super.key});
+class RegisterFood extends StatefulWidget {
+  const RegisterFood({super.key});
 
   @override
-  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
+  State<RegisterFood> createState() => _RegisterFoodState();
 }
 
-class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
-  
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
+class _RegisterFoodState extends State<RegisterFood> {
+  TextEditingController alimentoController = TextEditingController();
+  TextEditingController descricaoController = TextEditingController();
+  TextEditingController precoController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
 
   bool _passwordObscure = true;
@@ -35,63 +32,14 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: SizedBox(
-                    width: 50,
-                    child: ButtonTheme(
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              minimumSize: const Size.fromHeight(50),
-                              primary: Color(0XFFEDEDED),
-                            ),
-                            onPressed: () {
-                            },
-                            child: Text("<", style: TextStyle(color: Color(0XFF3B5137)),),
-                          ),
-                        ),
-                  ),
-                ),
                 SizedBox(
                   height: 30,
                 ),
                 Align(
-                  alignment: Alignment.center,
-                  child: Text('Cadastre seu alimento')
-                ),
+                    alignment: Alignment.center,
+                    child: Text('Cadastre seu alimento')),
                 SizedBox(
                   height: 30,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "Já é usuário? ",
-                      style: TextStyle(
-                        color: Color(0XFF3B5137),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 11,
-                      ),
-                    ),
-                    InkWell(
-                      child: new Text(
-                        'Faça login.',
-                        style: TextStyle(
-                          color: Color(0XFFFC8228),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 11,
-                        ),
-                      ),
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LoginScreen(),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 15,
                 ),
                 Form(
                   key: _formKey,
@@ -99,54 +47,25 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     children: <Widget>[
                       TextFormField(
                         cursorColor: Color.fromARGB(255, 185, 48, 39),
-                        keyboardType: TextInputType.name,
-                        decoration: const InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: InputBorder.none,
-                          labelText: "Nome",
-                          labelStyle: TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                          ),
-                        ),
-                        controller: nameController,
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                        textAlign: TextAlign.center,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Insira seu nome";
-                          } else {
-                            return null;
-                          }
-                        },
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      TextFormField(
-                        cursorColor: Color.fromARGB(255, 185, 48, 39),
                         keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
                           border: InputBorder.none,
-                          labelText: "E-mail",
+                          labelText: "Alimento",
                           labelStyle: TextStyle(
                             color: Colors.black,
                             fontSize: 15,
                           ),
                         ),
-                        controller: emailController,
+                        controller: alimentoController,
                         style: TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         textAlign: TextAlign.center,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Insira seu email";
+                            return "Insira seu alimento";
                           } else {
                             return null;
                           }
@@ -163,29 +82,20 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           filled: true,
                           fillColor: Colors.white,
                           border: InputBorder.none,
-                          labelText: "Senha",
+                          labelText: "Descrição",
                           labelStyle: TextStyle(
                             color: Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15,
                           ),
-                          suffixIcon: IconButton(
-                              icon: Icon(_passwordObscure
-                                  ? Icons.visibility
-                                  : Icons.visibility_off),
-                              onPressed: () {
-                                setState(() {
-                                  _passwordObscure = !_passwordObscure;
-                                });
-                              }),
                         ),
-                        controller: passwordController,
+                        controller: descricaoController,
                         style: TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         textAlign: TextAlign.center,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Insira sua senha";
+                            return "Insira a descrição de seu alimento";
                           } else {
                             return null;
                           }
@@ -202,30 +112,20 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           filled: true,
                           fillColor: Colors.white,
                           border: InputBorder.none,
-                          labelText: "Confirme a senha",
+                          labelText: "Preço (Reais)",
                           labelStyle: TextStyle(
                             color: Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15,
                           ),
-                          suffixIcon: IconButton(
-                              icon: Icon(_confirmPasswordObscure
-                                  ? Icons.visibility
-                                  : Icons.visibility_off),
-                              onPressed: () {
-                                setState(() {
-                                  _confirmPasswordObscure =
-                                      !_confirmPasswordObscure;
-                                });
-                              }),
                         ),
-                        controller: confirmPasswordController,
+                        controller: precoController,
                         style: TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         textAlign: TextAlign.center,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Confirme sua senha";
+                            return "Insira o valor de seu alimento";
                           } else {
                             return null;
                           }
@@ -237,42 +137,130 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            "Ao clicar em Cadastrar, você concorda com",
-                            style: TextStyle(
-                              color: Color(0XFF3B5137),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 11,
+                          SizedBox(
+                            width: 300,
+                            child: Text(
+                              'Certificação por auditoria, participativa ou vinculada a uma organização de controle social',
+                              style: TextStyle(fontSize: 12),
+                              textAlign: TextAlign.center,
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "os nossos ",
-                                style: TextStyle(
-                                  color: Color(0XFF3B5137),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 11,
+                          SizedBox(
+                            height: 10,
+                          ),
+                          SizedBox(
+                            width: 70,
+                            child: ButtonTheme(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  minimumSize: const Size.fromHeight(50),
+                                  primary: Color.fromARGB(255, 255, 255, 255),
                                 ),
+                                onPressed: () {},
+                                child: Text("Upload", style: TextStyle(color: Color(0XFFFC8228), fontSize: 12),),
                               ),
-                              InkWell(
-                                child: new Text(
-                                  'Termos de uso.',
-                                  style: TextStyle(
-                                    color: Color(0XFFFC8228),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 11,
-                                  ),
-                                ),
-                                onTap: () => {},
-                              ),
-                            ],
+                            ),
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 300,
+                            child: Text(
+                              'MAPA',
+                              style: TextStyle(fontSize: 12),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          SizedBox(
+                            width: 70,
+                            child: ButtonTheme(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  minimumSize: const Size.fromHeight(50),
+                                  primary: Color.fromARGB(255, 255, 255, 255),
+                                ),
+                                onPressed: () {},
+                                child: Text("Upload", style: TextStyle(color: Color(0XFFFC8228), fontSize: 12),),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 300,
+                            child: Text(
+                              'Instruções normativas',
+                              style: TextStyle(fontSize: 12),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          SizedBox(
+                            width: 70,
+                            child: ButtonTheme(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  minimumSize: const Size.fromHeight(50),
+                                  primary: Color.fromARGB(255, 255, 255, 255),
+                                ),
+                                onPressed: () {},
+                                child: Text("Upload", style: TextStyle(color: Color(0XFFFC8228), fontSize: 12),),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 300,
+                            child: Text(
+                              'Foto',
+                              style: TextStyle(fontSize: 12),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          SizedBox(
+                            width: 70,
+                            child: ButtonTheme(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  minimumSize: const Size.fromHeight(50),
+                                  primary: Color.fromARGB(255, 255, 255, 255),
+                                ),
+                                onPressed: () {},
+                                child: Text("Upload", style: TextStyle(color: Color(0XFFFC8228), fontSize: 12),),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 30,
                       ),
                       ButtonTheme(
                         child: ElevatedButton(
@@ -280,8 +268,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                             minimumSize: const Size.fromHeight(50),
                             primary: Color(0XFF91C788),
                           ),
-                          onPressed: () {
-                          },
+                          onPressed: () {},
                           child: Text("Cadastrar"),
                         ),
                       ),
@@ -290,7 +277,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       ),
                       InkWell(
                         child: new Text(
-                          'Usar sem login',
+                          'Voltar',
                           style: TextStyle(
                             color: Color(0XFF3B5137),
                             fontWeight: FontWeight.bold,
@@ -300,7 +287,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
+                            builder: (context) => LoginScreen(),
                           ),
                         ),
                       ),

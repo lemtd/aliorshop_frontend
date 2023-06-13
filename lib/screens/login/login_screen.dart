@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pockectcheff/screens/home/home_screen.dart';
 import 'package:pockectcheff/screens/login/register_screen.dart';
 import 'package:pockectcheff/screens/login/reset_password_screen.dart';
 
@@ -18,11 +17,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool _isSelected = false;
   bool _isObscure = true;
-
-  @override
-  void initState() {
-    _isObscure = true;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -217,13 +211,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontSize: 11,
                               ),
                             ),
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const ResetPasswordScreen(),
-                              ),
-                            ),
+                            onTap: () {}
                           ),
                         ],
                       ),
@@ -232,7 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       InkWell(
                         child: new Text(
-                          'Usar sem login',
+                          'Cadastro de alimento (temporário)',
                           style: TextStyle(
                             color: Color(0XFF3B5137),
                             fontWeight: FontWeight.bold,
@@ -242,7 +230,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
+                            builder: (context) => RegisterFood(),
                           ),
                         ),
                       ),

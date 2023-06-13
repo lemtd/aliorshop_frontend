@@ -245,7 +245,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     fontSize: 11,
                                   ),
                                 ),
-                                onTap: () => {},
+                                onTap: () {},
                               ),
                             ],
                           ),
@@ -270,7 +270,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       InkWell(
                         child: new Text(
-                          'Usar sem login',
+                          'Voltar',
                           style: TextStyle(
                             color: Color(0XFF3B5137),
                             fontWeight: FontWeight.bold,
@@ -280,7 +280,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
+                            builder: (context) => LoginScreen(),
                           ),
                         ),
                       ),
