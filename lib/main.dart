@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Pocketcheff',
+      title: 'Inovação em Saúde',
       theme: ThemeData(
         backgroundColor: Colors.white,
         appBarTheme: AppBarTheme(color: Colors.white, elevation: 0),
