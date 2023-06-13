@@ -8,10 +8,7 @@ import 'package:pockectcheff/screens/home/home_screen.dart';
 import 'package:pockectcheff/screens/login/checagem_page.dart';
 import 'package:pockectcheff/screens/login/register_screen.dart';
 import 'package:pockectcheff/screens/login/reset_password_screen.dart';
-import 'package:pockectcheff/screens/search_recipe/food_restrictions_screen.dart';
-import 'package:pockectcheff/snippets/firestore.dart';
-
-import '../../models/SearchTopics.dart';
+import 'package:pockectcheff/screens/search_recipe/food_restrictions.dart';
 
 class IngredientsScreen extends StatefulWidget {
   const IngredientsScreen({super.key});
@@ -23,7 +20,6 @@ class IngredientsScreen extends StatefulWidget {
 class _IngredientsScreenState extends State<IngredientsScreen> {
   TextEditingController ingredientsController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
-  static SearchTopics IngredientsTopics = SearchTopics();
 
   final _firebaseAuth = FirebaseAuth.instance;
 
@@ -287,26 +283,15 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                                   ? Colors.grey
                                   : Color.fromRGBO(255, 83, 71, 1),
                             ),
-                            onPressed: ingredients.isEmpty
-                                ? () {}
-                                : () {
-                                    setState(() {
-                                      IngredientsTopics.ingredients =
-                                          ingredients;
-                                    });
-                                    print(">>>>>>>>>>>>>>$ingredients");
-                                    print(
-                                        ">>>>>>>>>>>>>>:::::${IngredientsTopics.ingredients}");
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            FoodRestrictionsScreen(
-                                          topics: IngredientsTopics,
-                                        ),
-                                      ),
-                                    );
-                                  },
+                            onPressed:  ingredients.isEmpty
+                            ? () {}
+                            : () {
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FoodRestrictions(),
+                              ),
+                            );},
                             child: Text("Avançar"),
                           ),
                         ),
