@@ -1,11 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pockectcheff/screens/home/home_screen.dart';
 import 'package:pockectcheff/screens/login/register_screen.dart';
 import 'package:pockectcheff/screens/login/reset_password_screen.dart';
-
-import '../search_recipe/ingredients_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,8 +16,6 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
 
-  final _firebaseAuth = FirebaseAuth.instance;
-
   bool _isSelected = false;
   bool _isObscure = true;
 
@@ -32,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(255, 227, 226, 1),
+      backgroundColor: Color(0xFFEDEDED),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(
           10,
@@ -46,25 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Hey,",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 78, 28, 24),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "bem vinde!",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 78, 28, 24),
-                    ),
-                  ),
+                  child: Image.asset('images/veggie.png', width: 150,)
                 ),
                 SizedBox(
                   height: 10,
@@ -74,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Text(
                       "Novo por aqui? ",
                       style: TextStyle(
-                        color: Color.fromARGB(255, 118, 118, 118),
+                        color: Color(0XFF3B5137),
                         fontWeight: FontWeight.bold,
                         fontSize: 11,
                       ),
@@ -83,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: new Text(
                         'Crie uma conta.',
                         style: TextStyle(
-                          color: Color.fromARGB(255, 185, 48, 39),
+                          color: Color(0XFFFC8228),
                           fontWeight: FontWeight.bold,
                           fontSize: 11,
                         ),
@@ -98,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 80,
                 ),
                 Form(
                   key: _formKey,
@@ -180,10 +157,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               Transform.scale(
                                 scale: 0.8,
                                 child: Checkbox(
-                                  activeColor: Color.fromARGB(255, 185, 48, 39),
+                                  activeColor: Color(0XFF3B5137),
                                   checkColor: Colors.white,
                                   fillColor: MaterialStateProperty.all(
-                                    Color.fromARGB(255, 185, 48, 39),
+                                    Color(0XFF3B5137),
                                   ),
                                   value: _isSelected,
                                   onChanged: (bool? newValue) {
@@ -210,10 +187,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             minimumSize: const Size.fromHeight(50),
-                            primary: Color.fromRGBO(255, 83, 71, 1),
+                            primary: Color(0XFF91C788),
                           ),
                           onPressed: () {
-                            login();
                           },
                           child: Text("Login"),
                         ),
@@ -227,7 +203,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Text(
                             "Esqueceu senha? ",
                             style: TextStyle(
-                              color: Color.fromARGB(255, 118, 118, 118),
+                              color: Color(0XFF3B5137),
                               fontWeight: FontWeight.bold,
                               fontSize: 11,
                             ),
@@ -236,7 +212,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: new Text(
                               'Redefina.',
                               style: TextStyle(
-                                color: Color.fromARGB(255, 185, 48, 39),
+                                color: Color(0XFFFC8228),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 11,
                               ),
@@ -258,7 +234,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: new Text(
                           'Usar sem login',
                           style: TextStyle(
-                            color: Color.fromARGB(255, 118, 118, 118),
+                            color: Color(0XFF3B5137),
                             fontWeight: FontWeight.bold,
                             fontSize: 11,
                           ),
@@ -279,36 +255,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-
-  login() async{
-    try{
-      UserCredential userCredential = await _firebaseAuth.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
-      if(userCredential != null){
-          Navigator.pushReplacement(
-            context, 
-            MaterialPageRoute(
-             builder: (context) => IngredientsScreen(),
-            ),
-        );
-      }
-    } on FirebaseAuthException catch(e){
-      if(e.code == 'user-not-found'){
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Usuário não encontrado!'),
-          backgroundColor: Colors.redAccent,
-          ),
-        );
-      }else if(e.code == 'wrong-password'){
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Senha incorreta!'),
-          backgroundColor: Colors.redAccent,
-          ),
-        );
-      }
-    }
   }
 }

@@ -1,6 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pockectcheff/screens/login/checagem_page.dart';
 import 'package:pockectcheff/screens/login/login_screen.dart';
 
 import '../home/home_screen.dart';
@@ -18,7 +16,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
-  final _firebaseAuth = FirebaseAuth.instance;
 
   bool _passwordObscure = true;
   bool _confirmPasswordObscure = true;
@@ -26,7 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(255, 227, 226, 1),
+      backgroundColor: Color(0XFFEDEDED),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(
           10,
@@ -40,25 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Hey, novo por aqui?",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 78, 28, 24),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Registre-se.",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 78, 28, 24),
-                    ),
-                  ),
+                  child: Image.asset('images/veggie.png', width: 150,)
                 ),
                 SizedBox(
                   height: 10,
@@ -68,7 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     Text(
                       "Já é usuário? ",
                       style: TextStyle(
-                        color: Color.fromARGB(255, 118, 118, 118),
+                        color: Color(0XFF3B5137),
                         fontWeight: FontWeight.bold,
                         fontSize: 11,
                       ),
@@ -77,7 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: new Text(
                         'Faça login.',
                         style: TextStyle(
-                          color: Color.fromARGB(255, 185, 48, 39),
+                          color: Color(0XFFFC8228),
                           fontWeight: FontWeight.bold,
                           fontSize: 11,
                         ),
@@ -118,7 +97,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         textAlign: TextAlign.center,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Insert your name";
+                            return "Insira seu nome";
                           } else {
                             return null;
                           }
@@ -147,7 +126,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         textAlign: TextAlign.center,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Insert your email";
+                            return "Insira seu email";
                           } else {
                             return null;
                           }
@@ -164,7 +143,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           filled: true,
                           fillColor: Colors.white,
                           border: InputBorder.none,
-                          labelText: "Password",
+                          labelText: "Senha",
                           labelStyle: TextStyle(
                             color: Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15,
@@ -186,7 +165,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         textAlign: TextAlign.center,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Insert your password";
+                            return "Insira sua senha";
                           } else {
                             return null;
                           }
@@ -203,7 +182,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           filled: true,
                           fillColor: Colors.white,
                           border: InputBorder.none,
-                          labelText: "Confirm password",
+                          labelText: "Confirme a senha",
                           labelStyle: TextStyle(
                             color: Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15,
@@ -226,7 +205,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         textAlign: TextAlign.center,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Confirm your password";
+                            return "Confirme sua senha";
                           } else {
                             return null;
                           }
@@ -241,7 +220,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           Text(
                             "Ao clicar em Cadastrar, você concorda com",
                             style: TextStyle(
-                              color: Color.fromARGB(255, 118, 118, 118),
+                              color: Color(0XFF3B5137),
                               fontWeight: FontWeight.bold,
                               fontSize: 11,
                             ),
@@ -252,7 +231,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               Text(
                                 "os nossos ",
                                 style: TextStyle(
-                                  color: Color.fromARGB(255, 118, 118, 118),
+                                  color: Color(0XFF3B5137),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 11,
                                 ),
@@ -261,7 +240,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 child: new Text(
                                   'Termos de uso.',
                                   style: TextStyle(
-                                    color: Color.fromARGB(255, 185, 48, 39),
+                                    color: Color(0XFFFC8228),
                                     fontWeight: FontWeight.bold,
                                     fontSize: 11,
                                   ),
@@ -279,10 +258,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             minimumSize: const Size.fromHeight(50),
-                            primary: Color.fromRGBO(255, 83, 71, 1),
+                            primary: Color(0XFF91C788),
                           ),
                           onPressed: () {
-                            cadastrar();
                           },
                           child: Text("Cadastrar"),
                         ),
@@ -294,7 +272,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: new Text(
                           'Usar sem login',
                           style: TextStyle(
-                            color: Color.fromARGB(255, 118, 118, 118),
+                            color: Color(0XFF3B5137),
                             fontWeight: FontWeight.bold,
                             fontSize: 11,
                           ),
@@ -315,38 +293,5 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
       ),
     );
-  }
-
-  cadastrar() async {
-    try {
-      UserCredential userCredential =
-          await _firebaseAuth.createUserWithEmailAndPassword(
-              email: emailController.text, password: passwordController.text);
-      if (userCredential != null) {
-        userCredential.user!.updateDisplayName(nameController.text);
-        Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ChecagemPage(),
-            ),
-            (route) => false);
-      }
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Insira uma senha mais forte!'),
-            backgroundColor: Colors.redAccent,
-          ),
-        );
-      } else if (e.code == 'email-already-in-use') {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Esse e-mail já está em uso!'),
-            backgroundColor: Colors.redAccent,
-          ),
-        );
-      }
-    }
   }
 }
