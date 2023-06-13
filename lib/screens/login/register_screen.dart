@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pockectcheff/screens/login/login_screen.dart';
 
-import '../home/home_screen.dart';
-
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
@@ -78,7 +76,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
-                        cursorColor: Color.fromARGB(255, 185, 48, 39),
+                        cursorColor: Color(0XFFFC8228),
                         keyboardType: TextInputType.name,
                         decoration: const InputDecoration(
                           filled: true,
@@ -107,7 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: 10,
                       ),
                       TextFormField(
-                        cursorColor: Color.fromARGB(255, 185, 48, 39),
+                        cursorColor: Color(0XFFFC8228),
                         keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
                           filled: true,
@@ -137,7 +135,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       TextFormField(
                         obscureText: _passwordObscure,
-                        cursorColor: Color.fromARGB(255, 185, 48, 39),
+                        cursorColor: Color(0XFFFC8228),
                         keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
                           filled: true,
@@ -176,7 +174,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       TextFormField(
                         obscureText: _confirmPasswordObscure,
-                        cursorColor: Color.fromARGB(255, 185, 48, 39),
+                        cursorColor: Color(0XFFFC8228),
                         keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
                           filled: true,

@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
-                        cursorColor: Color.fromARGB(255, 185, 48, 39),
+                        cursorColor: Color(0XFFFC8228),
                         keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
                           filled: true,
@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       TextFormField(
                         obscureText: _isObscure,
-                        cursorColor: Color.fromARGB(255, 185, 48, 39),
+                        cursorColor: Color(0XFFFC8228),
                         keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
                           filled: true,

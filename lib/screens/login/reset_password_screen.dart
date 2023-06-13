@@ -14,9 +14,6 @@ class _RegisterFoodState extends State<RegisterFood> {
   TextEditingController precoController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
 
-  bool _passwordObscure = true;
-  bool _confirmPasswordObscure = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +43,7 @@ class _RegisterFoodState extends State<RegisterFood> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
-                        cursorColor: Color.fromARGB(255, 185, 48, 39),
+                        cursorColor: Color(0XFFFC8228),
                         keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
                           filled: true,
@@ -75,9 +72,8 @@ class _RegisterFoodState extends State<RegisterFood> {
                         height: 10,
                       ),
                       TextFormField(
-                        obscureText: _passwordObscure,
-                        cursorColor: Color.fromARGB(255, 185, 48, 39),
-                        keyboardType: TextInputType.visiblePassword,
+                        cursorColor: Color(0XFFFC8228),
+                        keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
@@ -105,9 +101,8 @@ class _RegisterFoodState extends State<RegisterFood> {
                         height: 10,
                       ),
                       TextFormField(
-                        obscureText: _confirmPasswordObscure,
-                        cursorColor: Color.fromARGB(255, 185, 48, 39),
-                        keyboardType: TextInputType.visiblePassword,
+                        cursorColor: Color(0XFFFC8228),
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
