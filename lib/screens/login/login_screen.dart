@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pockectcheff/screens/login/register_screen.dart';
 import 'package:pockectcheff/screens/login/reset_password_screen.dart';
+<<<<<<< HEAD
 import 'package:pockectcheff/screens/login/perfil_screen.dart';
+=======
+>>>>>>> origin/main
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,7 +17,11 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+<<<<<<< HEAD
   final _formKey = GlobalKey<FormState>();
+=======
+  final GlobalKey<FormState> _formKey = GlobalKey();
+>>>>>>> origin/main
 
   bool _isSelected = false;
   bool _isObscure = true;
@@ -83,7 +90,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           filled: true,
                           fillColor: Colors.white,
                           border: InputBorder.none,
+<<<<<<< HEAD
                           labelText: "E-mail", hintText: 'nome@email.com',
+=======
+                          labelText: "E-mail",
+>>>>>>> origin/main
                           labelStyle: TextStyle(
                             color: Colors.black,
                             fontSize: 15,
@@ -94,9 +105,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         textAlign: TextAlign.center,
+<<<<<<< HEAD
                         validator: (email) {
                           if (email == null || email.isEmpty) {
                             return "Digite seu e-mail";
+=======
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Insert your email";
+>>>>>>> origin/main
                           } else {
                             return null;
                           }
@@ -113,7 +130,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           filled: true,
                           fillColor: Colors.white,
                           border: InputBorder.none,
+<<<<<<< HEAD
                           labelText: "Password", hintText: 'Digite sua senha',
+=======
+                          labelText: "Password",
+>>>>>>> origin/main
                           labelStyle: TextStyle(
                             color: Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15,
@@ -133,6 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         textAlign: TextAlign.center,
+<<<<<<< HEAD
                         validator: (senha) {
                           if (senha == null || senha.isEmpty) {
                             return "Digite sua senha";
@@ -140,6 +162,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             return "Digite uma senha mais forte";
                           }
                           return null;
+=======
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Insert your password";
+                          } else {
+                            return null;
+                          }
+>>>>>>> origin/main
                         },
                       ),
                       SizedBox(
@@ -185,6 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             minimumSize: const Size.fromHeight(50),
                             primary: Color(0XFF91C788),
                           ),
+<<<<<<< HEAD
                             onPressed: () {
                               if(_formKey.currentState!.validate()){
                               }
@@ -197,6 +228,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   // Exibir mensagem de erro ou realizar outra ação
                 }
                             },
+=======
+                          onPressed: () {
+                          },
+>>>>>>> origin/main
                           child: Text("Login"),
                         ),
                       ),
@@ -256,6 +291,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+<<<<<<< HEAD
   void navigateToProfile(BuildContext context) {
   Navigator.pushReplacement(
     context,
@@ -270,4 +306,6 @@ void navigateToLogin(BuildContext context) {
     (route) => false,
   );
 }
+=======
+>>>>>>> origin/main
 }
