@@ -38,10 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   provider: ^6.0.3
   flutter_svg: ^1.1.5
-<<<<<<< HEAD
   http: ^1.0.0
-=======
->>>>>>> origin/main
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +67,8 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/veggie.png
+    - assets/venda.png
+    - assets/localização.png
 
   #   - images/a_dot_ham.jpeg
 
