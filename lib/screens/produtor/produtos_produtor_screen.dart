@@ -38,7 +38,7 @@ class _ProdutosProdutorScreenState extends State<ProdutosProdutorScreen> {
                 alignment: Alignment.center,
                 child: Text(
                   'Produtos da Loja',
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(fontSize: 15),
                 ),
               ),
               Padding(

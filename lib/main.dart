@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pockectcheff/screens/login/login_screen.dart';
+import 'package:pockectcheff/screens/home.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,12 +15,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Inovação em Saúde',
       theme: ThemeData(
-        backgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(color: Colors.white, elevation: 0),
+        backgroundColor: Color(0XFFEDEDED),
+        appBarTheme: AppBarTheme(color:Color(0XFFEDEDED), elevation: 0),
+        
       ),
-        home: LoginScreen(),
+        home: HomeScreen(),
         debugShowCheckedModeBanner: false
     );
   }
+}
+
+class PerfilScreen {
 }
 

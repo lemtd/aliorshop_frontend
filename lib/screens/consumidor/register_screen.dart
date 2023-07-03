@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pockectcheff/screens/login/login_screen.dart';
+import 'package:pockectcheff/screens/consumidor/login_screen.dart';
+import 'package:pockectcheff/screens/consumidor/perfil_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -23,11 +24,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       backgroundColor: Color(0XFFEDEDED),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(
-          10,
-          0,
-          10,
-          0,
+        padding: const EdgeInsets.symmetric(horizontal: 20
         ),
         child: Center(
           child: SingleChildScrollView(
@@ -102,7 +99,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       TextFormField(
                         cursorColor: Color(0XFFFC8228),
@@ -131,7 +128,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       TextFormField(
                         obscureText: _passwordObscure,
@@ -170,7 +167,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       TextFormField(
                         obscureText: _confirmPasswordObscure,
@@ -250,17 +247,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
-                      ButtonTheme(
+                     SizedBox(
+                        width: 300, // Defina o valor desejado para a largura
                         child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size.fromHeight(50),
-                            primary: Color(0XFF91C788),
-                          ),
                           onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProfileScreen(),
+                              ),
+                            );
                           },
-                          child: Text("Cadastrar"),
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            backgroundColor: const Color(0XFF91C788),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(20),
+                            child: Text('Cadastrar'),
+                          ),
                         ),
                       ),
                       SizedBox(

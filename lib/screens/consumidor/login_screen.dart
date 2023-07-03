@@ -1,11 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pockectcheff/screens/login/register_screen.dart';
-import 'package:pockectcheff/screens/login/reset_password_screen.dart';
-<<<<<<< HEAD
-import 'package:pockectcheff/screens/login/perfil_screen.dart';
-=======
->>>>>>> origin/main
+import 'package:pockectcheff/screens/consumidor/mercado_consumidor_screen.dart';
+import 'package:pockectcheff/screens/consumidor/perfil_screen.dart';
+import 'package:pockectcheff/screens/consumidor/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,11 +13,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-<<<<<<< HEAD
   final _formKey = GlobalKey<FormState>();
-=======
-  final GlobalKey<FormState> _formKey = GlobalKey();
->>>>>>> origin/main
 
   bool _isSelected = false;
   bool _isObscure = true;
@@ -31,12 +23,8 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: Color(0xFFEDEDED),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(
-          10,
-          0,
-          10,
-          0,
-        ),
+        padding: const EdgeInsets.symmetric(
+          horizontal:20,),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -90,11 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           filled: true,
                           fillColor: Colors.white,
                           border: InputBorder.none,
-<<<<<<< HEAD
                           labelText: "E-mail", hintText: 'nome@email.com',
-=======
-                          labelText: "E-mail",
->>>>>>> origin/main
                           labelStyle: TextStyle(
                             color: Colors.black,
                             fontSize: 15,
@@ -105,22 +89,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         textAlign: TextAlign.center,
-<<<<<<< HEAD
                         validator: (email) {
                           if (email == null || email.isEmpty) {
                             return "Digite seu e-mail";
-=======
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Insert your email";
->>>>>>> origin/main
                           } else {
                             return null;
                           }
                         },
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       TextFormField(
                         obscureText: _isObscure,
@@ -130,11 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           filled: true,
                           fillColor: Colors.white,
                           border: InputBorder.none,
-<<<<<<< HEAD
-                          labelText: "Password", hintText: 'Digite sua senha',
-=======
-                          labelText: "Password",
->>>>>>> origin/main
+                          labelText: "Senha", hintText: 'Digite sua senha',
                           labelStyle: TextStyle(
                             color: Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15,
@@ -154,7 +128,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         textAlign: TextAlign.center,
-<<<<<<< HEAD
                         validator: (senha) {
                           if (senha == null || senha.isEmpty) {
                             return "Digite sua senha";
@@ -162,14 +135,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             return "Digite uma senha mais forte";
                           }
                           return null;
-=======
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Insert your password";
-                          } else {
-                            return null;
-                          }
->>>>>>> origin/main
                         },
                       ),
                       SizedBox(
@@ -209,30 +174,27 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: 50,
                       ),
-                      ButtonTheme(
+                       SizedBox(
+                        width: 300, // Defina o valor desejado para a largura
                         child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size.fromHeight(50),
-                            primary: Color(0XFF91C788),
-                          ),
-<<<<<<< HEAD
-                            onPressed: () {
-                              if(_formKey.currentState!.validate()){
-                              }
-                              // Simulando uma autenticação bem-sucedida
-                bool isAuthenticated = true;
-
-                if (isAuthenticated) {
-                  navigateToProfile(context);
-                } else { print('errooor');
-                  // Exibir mensagem de erro ou realizar outra ação
-                }
-                            },
-=======
                           onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProfileScreen(),
+                              ),
+                            );
                           },
->>>>>>> origin/main
-                          child: Text("Login"),
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            backgroundColor: const Color(0XFF91C788),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(20),
+                            child: Text('Login'),
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -277,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => RegisterFood(),
+                            builder: (context) => MercadoConsumidorScreen(),
                           ),
                         ),
                       ),
@@ -291,21 +253,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-<<<<<<< HEAD
-  void navigateToProfile(BuildContext context) {
-  Navigator.pushReplacement(
-    context,
-    MaterialPageRoute(builder: (context) => ProfileScreen()),
-  );
-}
-
-void navigateToLogin(BuildContext context) {
-  Navigator.pushAndRemoveUntil(
-    context,
-    MaterialPageRoute(builder: (context) => LoginScreen()),
-    (route) => false,
-  );
-}
-=======
->>>>>>> origin/main
 }

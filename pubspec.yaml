@@ -69,6 +69,10 @@ flutter:
     - assets/veggie.png
     - assets/venda.png
     - assets/localização.png
+    - assets/tomate.png
+    - assets/berinjela.png
+    - assets/alface.png
+    - assets/beterraba.png
 
   #   - images/a_dot_ham.jpeg
 
