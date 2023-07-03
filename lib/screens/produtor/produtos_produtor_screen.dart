@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pockectcheff/screens/produtor/register_alimento_screen.dart';
 
 class ProdutosProdutorScreen extends StatefulWidget {
   const ProdutosProdutorScreen({super.key});
@@ -20,7 +21,8 @@ class _ProdutosProdutorScreenState extends State<ProdutosProdutorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: Color(0XFFEDEDED),),
+      backgroundColor: Color(0XFFEDEDED),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(
           10,
@@ -32,14 +34,11 @@ class _ProdutosProdutorScreenState extends State<ProdutosProdutorScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start, // Alinhamento horizontal no início
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 20  ),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Produtos da Loja',
-                    style: TextStyle(fontSize: 35),
-                  ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Produtos da Loja',
+                  style: TextStyle(fontSize: 25),
                 ),
               ),
               Padding(
@@ -127,18 +126,30 @@ class _ProdutosProdutorScreenState extends State<ProdutosProdutorScreen> {
                         ),
                       ),
                     ),
-                    ButtonTheme(
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  minimumSize: const Size.fromHeight(50),
-                                  primary: const Color(0XFF91C788),
-                                ),
-                                onPressed: () {
-                                  
-                                },
-                                child: const Text("Adicionar Produto"),
-                              ),
-                            )  
+                    SizedBox(height: 10,),
+                    SizedBox(
+                      width: 300, // Defina o valor desejado para a largura
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const RegisterAlimentoScreen(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          backgroundColor: const Color(0XFF91C788),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Text('Adicionar Produto'),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),         

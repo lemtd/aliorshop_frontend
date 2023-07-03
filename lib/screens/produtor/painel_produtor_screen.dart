@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pockectcheff/screens/produtos_produtor_screen.dart';
+import 'package:pockectcheff/screens/produtor/produtos_produtor_screen.dart';
 
 class PainelProdutorScreen extends StatefulWidget {
   const PainelProdutorScreen({super.key});
@@ -21,7 +21,8 @@ class _PainelProdutorScreenState extends State<PainelProdutorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: Color(0XFFEDEDED),),
+      backgroundColor: Color(0XFFEDEDED),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(
           10,
@@ -33,32 +34,30 @@ class _PainelProdutorScreenState extends State<PainelProdutorScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start, // Alinhamento horizontal no início
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 20  ),
-                child: Column(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Painel da Loja',
-                          style: TextStyle(fontSize: 35),
-                        ),
-                      ),
-                    ),
-                    Align(
+              Column(
+                children: [
+                  
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Align(
                       alignment: Alignment.center,
-                      child: Image.asset(
-                        'assets/venda.png',
-                        width: 100,
+                      child: Text(
+                        'Painel da Loja',
+                        style: TextStyle(fontSize: 25),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                  ],
-                ),
+                  ),
+                  // Align(
+                  //   alignment: Alignment.center,
+                  //   child: Image.asset(
+                  //     'assets/venda.png',
+                  //     width: 100,
+                  //   ),
+                  // ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.all(15),
@@ -154,13 +153,11 @@ class _PainelProdutorScreenState extends State<PainelProdutorScreen> {
                               ],)
                             ),
                           ),
-                        ),    
-                        ButtonTheme(
+                        ),  
+                        SizedBox(height: 10,),
+                        SizedBox(
+                          width: 300, // Defina o valor desejado para a largura
                           child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              minimumSize: const Size.fromHeight(50),
-                              primary: const Color(0XFF91C788),
-                            ),
                             onPressed: () {
                               Navigator.push(
                                 context,
@@ -169,9 +166,18 @@ class _PainelProdutorScreenState extends State<PainelProdutorScreen> {
                                 ),
                               );
                             },
-                            child: const Text("Ver mais"),
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              backgroundColor: const Color(0XFF91C788),
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.all(20),
+                              child: Text('Ver mais'),
+                            ),
                           ),
-                        )   
+                        ),
                       ],
                     ),
                     const SizedBox(height: 20,),
