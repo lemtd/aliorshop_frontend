@@ -3,6 +3,7 @@ import 'package:pockectcheff/screens/consumidor/mercado_consumidor_screen.dart';
 import 'package:pockectcheff/screens/consumidor/perfil_screen.dart';
 import 'package:pockectcheff/screens/consumidor/register_screen.dart';
 import 'package:pockectcheff/screens/home.dart';
+import 'package:pockectcheff/screens/produtor/producer_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -265,6 +266,25 @@ class _LoginScreenState extends State<LoginScreen> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => MercadoConsumidorScreen(),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      InkWell(
+                        child: new Text(
+                          'Tela do produtor (temporário)',
+                          style: TextStyle(
+                            color: Color(0XFF3B5137),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 11,
+                          ),
+                        ),
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProducerScreen(),
                           ),
                         ),
                       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pockectcheff/screens/consumidor/instrucoes.dart';
+import 'package:pockectcheff/screens/consumidor/instructions_screen.dart';
 import 'package:pockectcheff/screens/consumidor/register_screen.dart';
 import 'package:pockectcheff/screens/home.dart';
 

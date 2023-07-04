@@ -4,14 +4,14 @@ import 'package:pockectcheff/screens/home.dart';
 
 import '../produtor/painel_produtor_screen.dart';
 
-class InstrucoesTela extends StatefulWidget {
-  const InstrucoesTela({super.key});
+class InstructionsScreen extends StatefulWidget {
+  const InstructionsScreen({super.key});
 
   @override
-  State<InstrucoesTela> createState() => _InstrucoesTelaState();
+  State<InstructionsScreen> createState() => _InstructionsScreenState();
 }
 
-class _InstrucoesTelaState extends State<InstrucoesTela> {
+class _InstructionsScreenState extends State<InstructionsScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();

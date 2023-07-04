@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pockectcheff/screens/consumidor/instrucoes.dart';
+import 'package:pockectcheff/screens/consumidor/instructions_screen.dart';
 import 'package:pockectcheff/screens/consumidor/login_screen.dart';
 import 'package:pockectcheff/screens/consumidor/mercado_consumidor_screen.dart';
 import 'package:pockectcheff/screens/produtor/register_produtor_screen.dart';
@@ -173,7 +173,7 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => InstrucoesTela(),
+                    builder: (context) => InstructionsScreen(),
                   ),
                 );
               },
