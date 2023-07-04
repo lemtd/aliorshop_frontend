@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pockectcheff/screens/consumidor/mercado_consumidor_screen.dart';
 import 'package:pockectcheff/screens/consumidor/perfil_screen.dart';
 import 'package:pockectcheff/screens/consumidor/register_screen.dart';
+import 'package:pockectcheff/screens/home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -29,6 +30,30 @@ class _LoginScreenState extends State<LoginScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                        width: 80,
+                        height: 20,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomeScreen(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            backgroundColor: const Color(0XFF91C788),
+                          ),
+                          child: Text('Voltar'),
+                        ),
+                      ),
+              ),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Image.asset('assets/veggie.png', width: 150,)

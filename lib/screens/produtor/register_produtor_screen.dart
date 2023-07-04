@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pockectcheff/screens/home.dart';
 import 'package:pockectcheff/screens/produtor/painel_produtor_screen.dart';
 
 class RegisterProdutorScreen extends StatefulWidget {
@@ -263,7 +264,14 @@ class _RegisterProdutorScreenState extends State<RegisterProdutorScreen> {
                           fontSize: 11,
                         ),
                       ),
-                      onTap: () => {}
+                      onTap: () {
+                        Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomeScreen(),
+                              ),
+                            );
+                      }
                     ),
                   ],
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pockectcheff/screens/consumidor/login_screen.dart';
 import 'package:pockectcheff/screens/consumidor/perfil_screen.dart';
+import 'package:pockectcheff/screens/home.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -287,7 +288,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoginScreen(),
+                            builder: (context) => HomeScreen(),
                           ),
                         ),
                       ),
