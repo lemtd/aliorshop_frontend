@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pockectcheff/screens/consumidor/instructions_screen.dart';
+import 'package:pockectcheff/screens/consumidor/login_screen.dart';
 import 'package:pockectcheff/screens/consumidor/produto_consumidor_screen.dart';
+import 'package:pockectcheff/screens/consumidor/register_screen.dart';
+import 'package:pockectcheff/screens/home.dart';
+import 'package:pockectcheff/screens/produtor/register_produtor_screen.dart';
 
 class MercadoConsumidorScreen extends StatefulWidget {
   const MercadoConsumidorScreen({super.key});
@@ -21,7 +26,10 @@ class _MercadoConsumidorScreenState extends State<MercadoConsumidorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(        
+        iconTheme: IconThemeData(
+          color: Colors.black54, // Defina a cor desejada para os ícones do AppBar
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.shopping_cart),
@@ -32,6 +40,79 @@ class _MercadoConsumidorScreenState extends State<MercadoConsumidorScreen> {
         ],
       ),
       backgroundColor: Color(0XFFEDEDED),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            InkWell(
+              child: Padding(
+                padding: EdgeInsets.all(30),
+                child: const Text('AliorShop',
+                    style: TextStyle(
+                      color: const Color(0XFF91C788),
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.left)),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+                title: Text("Login"),
+                subtitle: Text("..."),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginScreen(),
+                    ),
+                  );
+                }),
+            ListTile(
+                title: Text("Cadastrar usuário"),
+                subtitle: Text('...'),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RegisterScreen(),
+                    ),
+                  );
+                }),
+            ListTile(
+                title: Text("Cadastrar loja"),
+                subtitle: Text("..."),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RegisterProdutorScreen(),
+                    ),
+                  );
+                }),
+            ListTile(
+                title: Text("Aprender a cultivar!"),
+                subtitle: Text("..."),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => InstructionsScreen(),
+                    ),
+                  );
+                }),
+          ],
+        ),
+      ),
       body: Container(
         padding: EdgeInsets.all(16),
         child: Column(
@@ -80,19 +161,26 @@ class _MercadoConsumidorScreenState extends State<MercadoConsumidorScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 50,),
-            SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-
-              child: Row(
-                  children: [
-                  alimento('tomate', 'Tomate', 'Venda do João', 'R\$10,00 (KG)', context),
-                  alimento('berinjela', 'Berinjela', 'Venda do João', 'R\$7,00 (UN)', context),
-                  alimento('alface', 'Alface', 'Venda do João', 'R\$2,00 (UN)', context),
-                  alimento('beterraba', 'Beterraba', 'Venda do João', 'R\$15,00 (KG)', context),
-                ],
+            Expanded(
+              child: Center(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Wrap(
+                    children: [
+                      alimento('tomate', 'Tomate', 'Venda do João', 'R\$10,00 (KG)', context),
+                      alimento('berinjela', 'Berinjela', 'Venda do João', 'R\$7,00 (UN)', context),
+                      alimento('alface', 'Alface', 'Venda do João', 'R\$2,00 (UN)', context),
+                      alimento('beterraba', 'Beterraba', 'Venda do João', 'R\$15,00 (KG)', context),
+                      alimento('tomate', 'Tomate', 'Horta Green', 'R\$12,00 (KG)', context),
+                      alimento('berinjela', 'Berinjela', 'Horta Green', 'R\$10,00 (UN)', context),
+                      alimento('alface', 'Alface', 'Horta Green', 'R\$5,00 (UN)', context),
+                      alimento('beterraba', 'Beterraba', 'Horta Green', 'R\$20,00 (KG)', context),
+                    ],
+                  ),
+                ),
               ),
-            )
+            ),
+          
           ],
         ),
       ),
@@ -143,7 +231,7 @@ Widget alimento(String imagem, String titulo, String descricao, String preco, Bu
       },
       child: Container(
         padding: EdgeInsets.all(20),
-        width: 200,
+        width: 160,
         height: 200,
         decoration: BoxDecoration(
           color: Colors.white,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pockectcheff/screens/consumidor/mercado_consumidor_screen.dart';
 import 'package:pockectcheff/screens/consumidor/perfil_screen.dart';
 import 'package:pockectcheff/screens/consumidor/register_screen.dart';
-import 'package:pockectcheff/screens/home.dart';
 import 'package:pockectcheff/screens/produtor/producer_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -38,12 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 20,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomeScreen(),
-                              ),
-                            );
+                            Navigator.pop(context);
                           },
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(

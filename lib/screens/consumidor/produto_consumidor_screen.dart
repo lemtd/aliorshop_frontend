@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pockectcheff/screens/consumidor/carrinho_consumidor_screen.dart';
 class ProdutoConsumidorScreen extends StatelessWidget {
   final String imagem;
   final String titulo;
@@ -10,6 +11,12 @@ class ProdutoConsumidorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: BackButton(
+          color: Colors.black54, // Defina a cor desejada para o botão de voltar
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.black54, // Defina a cor desejada para os ícones do AppBar
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.favorite),
@@ -81,12 +88,12 @@ class ProdutoConsumidorScreen extends StatelessWidget {
               width: 300, // Defina o valor desejado para a largura
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => const RegisterAlimentoScreen(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CarrinhoConsumidorScreen(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

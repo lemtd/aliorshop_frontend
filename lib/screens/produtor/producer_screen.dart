@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pockectcheff/screens/consumidor/register_screen.dart';
-import 'package:pockectcheff/screens/home.dart';
-
-import '../produtor/painel_produtor_screen.dart';
 
 class ProducerScreen extends StatefulWidget {
   const ProducerScreen({super.key});
@@ -40,12 +36,7 @@ class _ProducerScreenState extends State<ProducerScreen> {
                   height: 20,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
-                        ),
-                      );
+                      Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
