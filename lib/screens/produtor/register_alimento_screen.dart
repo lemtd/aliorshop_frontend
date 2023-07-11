@@ -205,12 +205,7 @@ class _RegisterAlimentoScreenState extends State<RegisterAlimentoScreen> {
                       width: 300, // Defina o valor desejado para a largura
                       child: ElevatedButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => const PainelProdutorScreen(),
-                          //   ),
-                          // );
+                          Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
